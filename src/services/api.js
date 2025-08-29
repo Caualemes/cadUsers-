@@ -1,8 +1,13 @@
 import axios from 'axios';
 
-// Antes: baseURL: process.env.REACT_APP_API_URL
+const API_URL = import.meta.env.VITE_API_URL || 
+  (import.meta.env.PROD 
+    ? 'https://cadusers-backend-1.onrender.com'
+    : 'http://localhost:3000'
+  );
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL
+  baseURL: API_URL
 });
 
 export default api;
