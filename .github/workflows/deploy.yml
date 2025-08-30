@@ -22,7 +22,12 @@ jobs:
       run: npm ci
 
     - name: Build
-      run: npm run build
+      run: |
+        npm run build
+        echo "Build completed, checking dist folder:"
+        ls -la dist/
+        echo "Checking index.html:"
+        head -20 dist/index.html
       env:
         VITE_API_URL: https://cadusers-backend-1.onrender.com
 
